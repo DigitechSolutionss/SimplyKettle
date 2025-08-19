@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simply Kettle</title>
+    <title>Pop Paradise - Premium Kettle Corn</title>
     <style>
         * {
             margin: 0;
@@ -12,564 +12,517 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
             overflow-x: hidden;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
+        /* Animated Popcorn Background */
+        .popcorn-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .floating-kernel {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: radial-gradient(circle, #fff 30%, #f9d71c 70%);
+            border-radius: 50% 0 50% 50%;
+            animation: float 8s infinite linear;
+            opacity: 0.1;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+            }
         }
 
         /* Hero Section */
         .hero {
-            text-align: center;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            padding: 100px 0;
-            background: linear-gradient(rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.8)), url('SimplyKettle.jpeg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-            position: relative;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-           <!--background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><g opacity="0.1" fill="none" stroke="rgba(255,255,255,0.3)"><rect x="20" y="20" width="40" height="20" rx="3"/><circle cx="100" cy="40" r="8"/><polygon points="160,20 180,35 160,50"/><rect x="40" y="80" width="60" height="30" rx="5"/><circle cx="150" cy="90" r="12"/><rect x="80" y="140" width="35" height="25" rx="4"/><polygon points="30,160 50,175 30,190"/><circle cx="170" cy="170" r="10"/></g></svg>') repeat;-->
-            animation: float 20s infinite linear;
-        }
-
-        .tech-icons {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            overflow: hidden;
-            pointer-events: none;
-        }
-
-        .tech-icon {
-            position: absolute;
-            color: rgba(255, 255, 255, 0.1);
-            font-size: 2rem;
-            animation: techFloat 15s infinite ease-in-out;
-        }
-
-        @keyframes techFloat {
-            0%, 100% { 
-                transform: translateY(0px) rotate(0deg); 
-                opacity: 0.1; 
-            }
-            50% { 
-                transform: translateY(-30px) rotate(180deg); 
-                opacity: 0.3; 
-            }
-        }
-
-        @keyframes float {
-            0% { transform: translateY(0px) translateX(0px); }
-            50% { transform: translateY(-20px) translateX(-10px); }
-            100% { transform: translateY(0px) translateX(0px); }
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            color: rgb(245, 242, 242);
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero-subtitle {
-            font-size: 1.3rem;
-            color: rgba(247, 240, 240, 0.9);
-            margin-bottom: 20px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .tech-stack {
+            background: linear-gradient(135deg, #ff6b6b 0%, #feca57 50%, #48dbfb 100%);
+            min-height: 100vh;
             display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-bottom: 30px;
-            flex-wrap: wrap;
-            position: relative;
-            z-index: 1;
-        }
-
-        .tech-item {
-            display: flex;
-            flex-direction: column;
             align-items: center;
-            color: rgba(255, 255, 255, 0.8);
-            transition: all 0.3s ease;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+            position: relative;
         }
 
-        .tech-item:hover {
+        .hero-content h1 {
+            font-size: 4rem;
             color: white;
-            transform: translateY(-5px);
+            text-shadow: 3px 3px 0 #ff4757;
+            margin-bottom: 20px;
+            animation: bounce 2s ease-in-out infinite;
         }
 
-        .tech-item i {
-            font-size: 2.5rem;
-            margin-bottom: 5px;
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-30px);
+            }
+            60% {
+                transform: translateY(-15px);
+            }
         }
 
-        .tech-item span {
-            font-size: 0.9rem;
-            font-weight: 500;
+        .hero-content p {
+            font-size: 1.5rem;
+            color: white;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 0 rgba(0,0,0,0.3);
         }
 
         .cta-button {
-            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+            background: linear-gradient(45deg, #ff4757, #ff6b6b);
             color: white;
-            padding: 15px 30px;
+            padding: 15px 40px;
+            font-size: 1.2rem;
             border: none;
             border-radius: 50px;
-            font-size: 1.1rem;
             cursor: pointer;
             transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(255, 71, 87, 0.4);
             text-decoration: none;
             display: inline-block;
-            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
-            position: relative;
-            z-index: 1;
         }
 
         .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(255, 107, 107, 0.6);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(255, 71, 87, 0.6);
         }
 
-        /* Services Section */
-        .services {
-            padding: 80px 0;
-            background: white;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            color: #333;
-            margin-bottom: 60px;
-            position: relative;
-        }
-
-        .section-title::after {
-            content: '';
+        /* Popcorn Kernels Illustration */
+        .hero-kernels {
             position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            border-radius: 2px;
+            width: 100%;
+            height: 100%;
         }
 
-        .services-grid {
+        .kernel {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background: radial-gradient(circle, #fff 30%, #feca57 70%);
+            border-radius: 50% 0 50% 50%;
+            animation: kernelFloat 6s ease-in-out infinite;
+        }
+
+        .kernel:nth-child(1) { top: 20%; left: 10%; animation-delay: 0s; }
+        .kernel:nth-child(2) { top: 30%; right: 15%; animation-delay: 1s; }
+        .kernel:nth-child(3) { top: 60%; left: 20%; animation-delay: 2s; }
+        .kernel:nth-child(4) { top: 70%; right: 25%; animation-delay: 3s; }
+
+        @keyframes kernelFloat {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+
+        /* Offerings Section */
+        .offerings {
+            padding: 80px 20px;
+            background: linear-gradient(45deg, #ffecd2 0%, #fcb69f 100%);
+        }
+
+        .offerings h2 {
+            text-align: center;
+            font-size: 3rem;
+            color: #ff4757;
+            margin-bottom: 50px;
+            text-shadow: 2px 2px 0 rgba(0,0,0,0.1);
+        }
+
+        .offerings-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
-            margin-top: 50px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
-        .service-card {
+        .offering-card {
             background: white;
             border-radius: 20px;
-            padding: 40px 30px;
+            padding: 30px;
             text-align: center;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
         }
 
-        .service-card::before {
+        .offering-card::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(102, 126, 234, 0.1), transparent);
-            transition: left 0.6s;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.3), transparent);
+            transform: rotate(45deg);
+            transition: all 0.5s ease;
+            opacity: 0;
         }
 
-        .service-card:hover::before {
-            left: 100%;
+        .offering-card:hover::before {
+            animation: shimmer 1s ease-in-out;
         }
 
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        @keyframes shimmer {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); opacity: 0; }
+            50% { opacity: 1; }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); opacity: 0; }
         }
 
-        .service-icon {
-            width: 80px;
-            height: 80px;
-            margin: 0 auto 20px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            color: white;
-            position: relative;
-            z-index: 1;
+        .offering-card:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.2);
         }
 
-        .web-dev { background: linear-gradient(135deg, #667eea, #764ba2); }
-        .ai-bot { background: linear-gradient(135deg, #ffecd2, #fcb69f); }
-        .digital-marketing { background: linear-gradient(135deg, #a8edea, #fed6e3); }
-        .seo { background: linear-gradient(135deg, #84fab0, #8fd3f4); }
-        .automation { background: linear-gradient(135deg, #fa709a, #fee140); }
-        .security { background: linear-gradient(135deg, #43e97b, #38f9d7); }
+        .offering-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
 
-        .service-card h3 {
-            font-size: 1.5rem;
-            color: #333;
+        .offering-card h3 {
+            font-size: 1.8rem;
+            color: #ff4757;
             margin-bottom: 15px;
-            position: relative;
-            z-index: 1;
         }
 
-        .service-card p {
+        .offering-card p {
             color: #666;
             line-height: 1.6;
-            position: relative;
-            z-index: 1;
+            margin-bottom: 20px;
+        }
+
+        .price {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #48dbfb;
         }
 
         /* Contact Section */
         .contact {
-            padding: 80px 0;
+            padding: 80px 20px;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            position: relative;
+        }
+
+        .contact h2 {
+            text-align: center;
+            font-size: 3rem;
             color: white;
+            margin-bottom: 50px;
+            text-shadow: 2px 2px 0 rgba(0,0,0,0.3);
         }
 
-        .contact-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-        }
-
-        .contact-info h2 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-        }
-
-        .contact-info p {
-            font-size: 1.1rem;
-            line-height: 1.6;
-            margin-bottom: 30px;
-            opacity: 0.9;
-        }
-
-        .contact-form {
-            background: rgba(255, 255, 255, 0.1);
+        .contact-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
             padding: 40px;
             border-radius: 20px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            position: relative;
         }
 
         .form-group {
             margin-bottom: 25px;
+            position: relative;
         }
 
         .form-group label {
             display: block;
             margin-bottom: 8px;
-            font-weight: 500;
+            color: #333;
+            font-weight: bold;
+            font-size: 1.1rem;
         }
 
         .form-group input,
         .form-group textarea {
             width: 100%;
             padding: 15px;
-            border: none;
-            border-radius: 10px;
-            background: rgba(255, 255, 255, 0.9);
+            border: 3px solid #e0e0e0;
+            border-radius: 15px;
             font-size: 1rem;
             transition: all 0.3s ease;
+            font-family: inherit;
         }
 
         .form-group input:focus,
         .form-group textarea:focus {
             outline: none;
-            background: white;
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 120px;
+            border-color: #ff6b6b;
+            transform: scale(1.02);
+            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
         }
 
         .submit-btn {
-            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+            background: linear-gradient(45deg, #ff6b6b, #feca57);
             color: white;
-            padding: 15px 40px;
+            padding: 18px 50px;
+            font-size: 1.3rem;
             border: none;
             border-radius: 50px;
-            font-size: 1.1rem;
             cursor: pointer;
             transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(255, 107, 107, 0.4);
             width: 100%;
-            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+            position: relative;
+            overflow: hidden;
         }
 
         .submit-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(255, 107, 107, 0.6);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(255, 107, 107, 0.6);
         }
 
-        /* Footer */
-        .footer {
-            background: #333;
-            color: white;
-            text-align: center;
-            padding: 30px 0;
+        .submit-btn:active {
+            transform: translateY(0);
+            animation: pop 0.3s ease;
         }
 
-        .footer p {
-            opacity: 0.8;
+        @keyframes pop {
+            0% { transform: scale(1); }
+            50% { transform: scale(0.95); }
+            100% { transform: scale(1); }
+        }
+
+        /* Contact Section Kernels */
+        .contact-kernels {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .contact-kernel {
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            background: radial-gradient(circle, rgba(255,255,255,0.8) 30%, rgba(254, 202, 87, 0.8) 70%);
+            border-radius: 50% 0 50% 50%;
+            animation: contactFloat 8s ease-in-out infinite;
+        }
+
+        .contact-kernel:nth-child(1) { top: 10%; left: 5%; animation-delay: 0s; }
+        .contact-kernel:nth-child(2) { top: 20%; right: 10%; animation-delay: 2s; }
+        .contact-kernel:nth-child(3) { bottom: 20%; left: 8%; animation-delay: 4s; }
+        .contact-kernel:nth-child(4) { bottom: 10%; right: 5%; animation-delay: 6s; }
+
+        @keyframes contactFloat {
+            0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.3; }
+            50% { transform: translateY(-30px) rotate(180deg); opacity: 0.8; }
         }
 
         /* Responsive Design */
         @media (max-width: 768px) {
-            .hero h1 {
+            .hero-content h1 {
                 font-size: 2.5rem;
             }
             
-            .hero-subtitle {
-                font-size: 1.1rem;
+            .hero-content p {
+                font-size: 1.2rem;
             }
             
-            .contact-content {
-                grid-template-columns: 1fr;
-                gap: 40px;
+            .offerings h2,
+            .contact h2 {
+                font-size: 2.5rem;
             }
             
-            .services-grid {
+            .offerings-grid {
                 grid-template-columns: 1fr;
+                gap: 20px;
             }
-        }
-
-        /* Animation for page load */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 0.8s ease forwards;
-        }
-
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
+            
+            .contact-container {
+                margin: 0 10px;
+                padding: 30px 20px;
             }
         }
     </style>
 </head>
 <body>
+    <!-- Animated Background -->
+    <div class="popcorn-bg" id="popcornBg"></div>
+
     <!-- Hero Section -->
-    <section class="hero">
-        <div class="tech-icons">
-            <div class="tech-icon" style="top: 10%; left: 10%;">⚛️</div>
-            <div class="tech-icon" style="top: 20%; right: 15%; animation-delay: -2s;">🐍</div>
-            <div class="tech-icon" style="top: 60%; left: 8%; animation-delay: -4s;">⚡</div>
-            <div class="tech-icon" style="bottom: 20%; right: 10%; animation-delay: -6s;">🔧</div>
-            <div class="tech-icon" style="top: 40%; left: 85%; animation-delay: -8s;">💻</div>
-            <div class="tech-icon" style="bottom: 40%; left: 20%; animation-delay: -10s;">🚀</div>
+    <section class="hero" id="hero">
+        <div class="hero-kernels">
+            <div class="kernel"></div>
+            <div class="kernel"></div>
+            <div class="kernel"></div>
+            <div class="kernel"></div>
         </div>
-        <div class="container">
-            <h1 class="fade-in">Simply Kettle</h1>
-            <p class="hero-subtitle fade-in">Simply the Best. Simple Ingredients. Hand Stirred & Freshly Popped. Simply Delicious. Simply Kettle.</p>
-            
-            
-            
-            <a href="#contact" class="cta-button fade-in">Let's Connect</a>
+        <div class="hero-content">
+            <h1>🍿 Pop Paradise 🍿</h1>
+            <p>Freshly popped kettle corn that'll make your taste buds dance!</p>
+            <a href="#contact" class="cta-button">Get Your Pop On!</a>
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section class="services">
-        <div class="container">
-            <h2 class="section-title">Some of our Offerings</h2>
+    <!-- Offerings Section -->
+    <section class="offerings" id="offerings">
+        <h2>Our Poppin' Flavors</h2>
+        <div class="offerings-grid">
+            <div class="offering-card">
+                <div class="offering-icon">🌽</div>
+                <h3>Classic Kettle Corn</h3>
+                <p>The perfect balance of sweet and salty that started it all. Made with premium kernels and our secret seasoning blend.</p>
+                <div class="price">$8.99/bag</div>
+            </div>
             
-            <div class="services-grid">
-                <div class="service-card fade-in">
-                    <div class="service-icon web-dev">🌐</div>
-                    <h3>Traditional Popcorn</h3>
-                    <p>Simple. Classic. Irresistible.Light, fluffy, and kissed with just the right amount of sweetness — it’s the kettle corn that started it all.</p>
-                </div>
-                
-                <div class="service-card fade-in">
-                    <div class="service-icon ai-bot">🤖</div>
-                    <h3>Caramel Popcorn</h3>
-                    <p>Golden. Gooey. Gone in a flash. Every crunchy bite is coated in rich, buttery caramel that melts in your mouth and keeps you reaching for “just one more.” .</p>
-                </div>
-                
-                <div class="service-card fade-in">
-                    <div class="service-icon digital-marketing">📊</div>
-                    <h3>Spicy Popcorn</h3>
-                    <p>Sweet meets heat.This bold blend has a playful kick that sneaks up on you — perfect for popcorn lovers who like a little adventure with their crunch.</p>
-                </div>
-                
-                <div class="service-card fade-in">
-                    <div class="service-icon custom-coding">⚡</div>
-                    <h3>Holiday Popcorn</h3>
-                    <p>Festive in every bite. A merry mix of colors and flavors that taste like holiday cheer — whether you’re snacking by the fire or gifting a bag, this one’s pure joy.</p>
-                </div>
-             
-                
-        
+            <div class="offering-card">
+                <div class="offering-icon">🧀</div>
+                <h3>Cheesy Cheddar Pop</h3>
+                <p>Rich, creamy cheddar cheese coating every kernel. It's like a party in your mouth with every crunch!</p>
+                <div class="price">$9.99/bag</div>
+            </div>
+            
+            <div class="offering-card">
+                <div class="offering-icon">🌶️</div>
+                <h3>Spicy Jalapeño Kick</h3>
+                <p>For the brave souls who like their snacks with a kick! Perfectly spiced without overwhelming the flavor.</p>
+                <div class="price">$10.99/bag</div>
+            </div>
+            
+            <div class="offering-card">
+                <div class="offering-icon">🍫</div>
+                <h3>Chocolate Drizzle Dream</h3>
+                <p>Sweet kettle corn drizzled with premium dark chocolate. It's dessert and snack rolled into one!</p>
+                <div class="price">$11.99/bag</div>
+            </div>
+            
+            <div class="offering-card">
+                <div class="offering-icon">🎪</div>
+                <h3>Carnival Mix Combo</h3>
+                <p>Can't decide? Get a mix of all our flavors! Perfect for parties, events, or when you're feeling adventurous.</p>
+                <div class="price">$15.99/bag</div>
+            </div>
+            
+            <div class="offering-card">
+                <div class="offering-icon">🎁</div>
+                <h3>Custom Party Packs</h3>
+                <p>Planning an event? We'll create custom flavors and packaging for your special occasion. Let's make it memorable!</p>
+                <div class="price">Contact Us</div>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
     <section class="contact" id="contact">
-        <div class="container">
-            <div class="contact-content">
-                <div class="contact-info fade-in">
-                    <h2>Have Questions? Reach Out.</h2>
-                    
+        <div class="contact-kernels">
+            <div class="contact-kernel"></div>
+            <div class="contact-kernel"></div>
+            <div class="contact-kernel"></div>
+            <div class="contact-kernel"></div>
+        </div>
+        
+        <h2>Let's Get Poppin'!</h2>
+        <div class="contact-container">
+            <form id="contactForm">
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" required>
                 </div>
                 
-                <form class="contact-form fade-in" id="contactForm">
-                    <div class="form-group">
-                        <label for="name">Your Name</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="email">Email Address</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    
-                                       
-                    <div class="form-group">
-                        <label for="message">What can we help you with?</label>
-                        <textarea id="message" name="message" placeholder="Let us know how we cam help!" required></textarea>
-                    </div>
-                    
-                    <button type="submit" class="submit-btn">Send Message ✨</button>
-                </form>
-            </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone">
+                </div>
+                
+                <div class="form-group">
+                    <label for="event-type">Event Type</label>
+                    <input type="text" id="event-type" name="event-type" placeholder="Birthday, Wedding, Corporate Event, etc.">
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Tell Us About Your Poppin' Needs!</label>
+                    <textarea id="message" name="message" rows="5" placeholder="How many people? Any special flavor requests? When's your event? We're all ears!"></textarea>
+                </div>
+                
+                <button type="submit" class="submit-btn">🍿 Get Poppin'! 🍿</button>
+            </form>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2024 Digitech Solutions. Crafting digital excellence, one project at a time.</p>
-        </div>
-    </footer>
-
     <script>
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            });
-        });
+        // Create floating background kernels
+        function createFloatingKernels() {
+            const bg = document.getElementById('popcornBg');
+            
+            for (let i = 0; i < 15; i++) {
+                const kernel = document.createElement('div');
+                kernel.className = 'floating-kernel';
+                kernel.style.left = Math.random() * 100 + '%';
+                kernel.style.animationDelay = Math.random() * 8 + 's';
+                kernel.style.animationDuration = (8 + Math.random() * 4) + 's';
+                bg.appendChild(kernel);
+            }
+        }
 
-        // Form submission handling
+        // Form submission with animation
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // Get form data
-            const formData = new FormData(this);
-            const data = Object.fromEntries(formData);
-            
-            // Simple validation
-            if (!data.name || !data.email || !data.message) {
-                alert('Please fill in all required fields.');
-                return;
-            }
-            
-            // Create mailto link
-            const subject = encodeURIComponent(`New Contact Form Submission from ${data.name}`);
-            const body = encodeURIComponent(`
-Name: ${data.name}
-Email: ${data.email}
-Project Type: ${data.project || 'Not specified'}
-
-Message:
-${data.message}
-
----
-Sent from Digitech Solutions contact form
-            `);
-            
-            const mailtoLink = `mailto:digitechsolutionss@outlook.com?subject=${subject}&body=${body}`;
-            
-            // Open email client
-            window.location.href = mailtoLink;
-            
-            // Show confirmation
-            const submitBtn = this.querySelector('.submit-btn');
+            const submitBtn = document.querySelector('.submit-btn');
             const originalText = submitBtn.textContent;
             
-            submitBtn.textContent = 'Opening Email Client... 📧';
-            submitBtn.disabled = true;
+            submitBtn.textContent = '🎉 Popping Your Message! 🎉';
+            submitBtn.style.background = 'linear-gradient(45deg, #48dbfb, #0abde3)';
             
             setTimeout(() => {
-                alert('Your email client should open with the pre-filled message. If it doesn\'t open automatically, please send an email to digitechsolutionss@outlook.com with your inquiry.');
-                this.reset();
-                submitBtn.textContent = originalText;
-                submitBtn.disabled = false;
-            }, 2000);
+                submitBtn.textContent = '✨ Message Popped! ✨';
+                submitBtn.style.background = 'linear-gradient(45deg, #26de81, #20bf6b)';
+                
+                setTimeout(() => {
+                    submitBtn.textContent = originalText;
+                    submitBtn.style.background = 'linear-gradient(45deg, #ff6b6b, #feca57)';
+                    this.reset();
+                }, 2000);
+            }, 1500);
         });
 
-        // Animation on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.animationDelay = Math.random() * 0.3 + 's';
-                    entry.target.classList.add('fade-in');
-                }
+        // Smooth scrolling for CTA button
+        document.querySelector('.cta-button').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('contact').scrollIntoView({
+                behavior: 'smooth'
             });
-        }, observerOptions);
-
-        document.querySelectorAll('.service-card, .contact-info, .contact-form').forEach(el => {
-            observer.observe(el);
         });
 
-        // Add some interactive elements
-        document.querySelectorAll('.service-card').forEach(card => {
-            card.addEventListener('mouseover', function() {
-                this.style.transform = 'translateY(-10px) scale(1.02)';
+        // Initialize floating kernels
+        createFloatingKernels();
+
+        // Add some sparkle effects on hover for offering cards
+        document.querySelectorAll('.offering-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.05) rotate(1deg)';
             });
             
-            card.addEventListener('mouseout', function() {
-                this.style.transform = 'translateY(0) scale(1)';
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1) rotate(0deg)';
             });
         });
     </script>
