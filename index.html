@@ -3,440 +3,142 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simply Kettle - Premium Kettle Corn</title>
+    <title>Pop Paradise - Premium Kettle Corn</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         body {
-            font-family: 'Comic Sans MS', cursive, sans-serif;
-            overflow-x: hidden;
+            font-family: 'Comic Sans MS', cursive, sans-serif; /* 🎨 Change font family here */
         }
 
-        /* Animated Popcorn Background */
-        .popcorn-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
-        }
-
-        .floating-kernel {
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            background: radial-gradient(circle, #fff 30%, #f9d71c 70%);
-            border-radius: 50% 0 50% 50%;
-            animation: float 8s infinite linear;
-            opacity: 0.1;
-        }
-
-        @keyframes float {
-            0% {
-                transform: translateY(100vh) rotate(0deg);
-            }
-            100% {
-                transform: translateY(-100px) rotate(360deg);
-            }
-        }
-
-        /* Hero Section */
+        /* ===========================
+           HERO SECTION (Customizable)
+           =========================== */
         .hero {
             background: linear-gradient(135deg, #ff6b6b 0%, #feca57 50%, #48dbfb 100%);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 20px;
-            position: relative;
+            /* 🎨 Change hero background (solid color, gradient, or image) */
         }
 
         .hero-content h1 {
-            font-size: 4rem;
-            color: white;
-            text-shadow: 3px 3px 0 #ff4757;
-            margin-bottom: 20px;
-            animation: bounce 2s ease-in-out infinite;
-        }
-
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {
-                transform: translateY(0);
-            }
-            40% {
-                transform: translateY(-30px);
-            }
-            60% {
-                transform: translateY(-15px);
-            }
+            font-size: 4rem;  /* 🔠 Change hero title size */
+            color: white;     /* 🎨 Hero title color */
+            text-shadow: 3px 3px 0 #ff4757; /* ✨ Shadow styling */
         }
 
         .hero-content p {
-            font-size: 1.5rem;
-            color: white;
-            margin-bottom: 30px;
-            text-shadow: 2px 2px 0 rgba(0,0,0,0.3);
+            font-size: 1.5rem; /* 🔠 Hero subtitle size */
+            color: white;      /* 🎨 Hero subtitle color */
         }
 
         .cta-button {
-            background: linear-gradient(45deg, #ff4757, #ff6b6b);
-            color: white;
-            padding: 15px 40px;
-            font-size: 1.2rem;
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 20px rgba(255, 71, 87, 0.4);
-            text-decoration: none;
-            display: inline-block;
+            background: linear-gradient(45deg, #ff4757, #ff6b6b); /* 🎨 CTA button colors */
+            padding: 15px 40px; /* 📏 Button size */
+            border-radius: 50px; /* 🎨 Rounded button shape */
         }
 
-        .cta-button:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(255, 71, 87, 0.6);
-        }
-
-        /* Popcorn Kernels Illustration */
-        .hero-kernels {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-        }
-
-        .kernel {
-            position: absolute;
-            width: 30px;
-            height: 30px;
-            background: radial-gradient(circle, #fff 30%, #feca57 70%);
-            border-radius: 50% 0 50% 50%;
-            animation: kernelFloat 6s ease-in-out infinite;
-        }
-
-        .kernel:nth-child(1) { top: 20%; left: 10%; animation-delay: 0s; }
-        .kernel:nth-child(2) { top: 30%; right: 15%; animation-delay: 1s; }
-        .kernel:nth-child(3) { top: 60%; left: 20%; animation-delay: 2s; }
-        .kernel:nth-child(4) { top: 70%; right: 25%; animation-delay: 3s; }
-
-        @keyframes kernelFloat {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(180deg); }
-        }
-
-        /* Offerings Section */
+        /* ===========================
+           OFFERINGS / CARDS
+           =========================== */
         .offerings {
-            padding: 80px 20px;
             background: linear-gradient(45deg, #ffecd2 0%, #fcb69f 100%);
+            /* 🎨 Change section background */
         }
 
         .offerings h2 {
-            text-align: center;
-            font-size: 3rem;
-            color: #ff4757;
-            margin-bottom: 50px;
-            text-shadow: 2px 2px 0 rgba(0,0,0,0.1);
-        }
-
-        .offerings-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            max-width: 1200px;
-            margin: 0 auto;
+            font-size: 3rem;  /* 🔠 Section title size */
+            color: #ff4757;   /* 🎨 Section title color */
         }
 
         .offering-card {
-            background: white;
-            border-radius: 20px;
-            padding: 30px;
-            text-align: center;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .offering-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.3), transparent);
-            transform: rotate(45deg);
-            transition: all 0.5s ease;
-            opacity: 0;
-        }
-
-        .offering-card:hover::before {
-            animation: shimmer 1s ease-in-out;
-        }
-
-        @keyframes shimmer {
-            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); opacity: 0; }
-            50% { opacity: 1; }
-            100% { transform: translateX(100%) translateY(100%) rotate(45deg); opacity: 0; }
-        }
-
-        .offering-card:hover {
-            transform: translateY(-10px) scale(1.05);
-            box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+            background: white;   /* 🎨 Card background */
+            border-radius: 20px; /* 🎨 Card roundness */
+            padding: 30px;       /* 📏 Card spacing */
         }
 
         .offering-icon {
-            font-size: 4rem;
-            margin-bottom: 20px;
+            font-size: 4rem; /* 🔠 Icon size */
+            /* 🎨 Replace emoji with icons/images if needed */
         }
 
         .offering-card h3 {
-            font-size: 1.8rem;
-            color: #ff4757;
-            margin-bottom: 15px;
-        }
-
-        .offering-card p {
-            color: #666;
-            line-height: 1.6;
-            margin-bottom: 20px;
+            color: #ff4757; /* 🎨 Card title color */
         }
 
         .price {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #48dbfb;
+            color: #48dbfb;  /* 🎨 Price text color */
         }
 
-        /* Contact Section */
+        /* ===========================
+           CONTACT SECTION
+           =========================== */
         .contact {
-            padding: 80px 20px;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            position: relative;
+            /* 🎨 Change contact section background */
         }
 
         .contact h2 {
-            text-align: center;
-            font-size: 3rem;
-            color: white;
-            margin-bottom: 50px;
-            text-shadow: 2px 2px 0 rgba(0,0,0,0.3);
+            font-size: 3rem; /* 🔠 Contact title size */
+            color: white;    /* 🎨 Contact title color */
         }
 
         .contact-container {
-            max-width: 600px;
-            margin: 0 auto;
-            background: white;
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-            position: relative;
-        }
-
-        .form-group {
-            margin-bottom: 25px;
-            position: relative;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            color: #333;
-            font-weight: bold;
-            font-size: 1.1rem;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 15px;
-            border: 3px solid #e0e0e0;
-            border-radius: 15px;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            font-family: inherit;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: #ff6b6b;
-            transform: scale(1.02);
-            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
+            background: white;   /* 🎨 Form background */
+            border-radius: 20px; /* 🎨 Form box shape */
+            padding: 40px;       /* 📏 Form padding */
         }
 
         .submit-btn {
-            background: linear-gradient(45deg, #ff6b6b, #feca57);
-            color: white;
-            padding: 18px 50px;
-            font-size: 1.3rem;
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 20px rgba(255, 107, 107, 0.4);
-            width: 100%;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .submit-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 30px rgba(255, 107, 107, 0.6);
-        }
-
-        .submit-btn:active {
-            transform: translateY(0);
-            animation: pop 0.3s ease;
-        }
-
-        @keyframes pop {
-            0% { transform: scale(1); }
-            50% { transform: scale(0.95); }
-            100% { transform: scale(1); }
-        }
-
-        /* Contact Section Kernels */
-        .contact-kernels {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-        }
-
-        .contact-kernel {
-            position: absolute;
-            width: 25px;
-            height: 25px;
-            background: radial-gradient(circle, rgba(255,255,255,0.8) 30%, rgba(254, 202, 87, 0.8) 70%);
-            border-radius: 50% 0 50% 50%;
-            animation: contactFloat 8s ease-in-out infinite;
-        }
-
-        .contact-kernel:nth-child(1) { top: 10%; left: 5%; animation-delay: 0s; }
-        .contact-kernel:nth-child(2) { top: 20%; right: 10%; animation-delay: 2s; }
-        .contact-kernel:nth-child(3) { bottom: 20%; left: 8%; animation-delay: 4s; }
-        .contact-kernel:nth-child(4) { bottom: 10%; right: 5%; animation-delay: 6s; }
-
-        @keyframes contactFloat {
-            0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.3; }
-            50% { transform: translateY(-30px) rotate(180deg); opacity: 0.8; }
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .hero-content h1 {
-                font-size: 2.5rem;
-            }
-            
-            .hero-content p {
-                font-size: 1.2rem;
-            }
-            
-            .offerings h2,
-            .contact h2 {
-                font-size: 2.5rem;
-            }
-            
-            .offerings-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-            
-            .contact-container {
-                margin: 0 10px;
-                padding: 30px 20px;
-            }
+            background: linear-gradient(45deg, #ff6b6b, #feca57); /* 🎨 Submit button colors */
+            padding: 18px 50px; /* 📏 Button size */
+            border-radius: 50px; /* 🎨 Button roundness */
         }
     </style>
 </head>
 <body>
-    <!-- Animated Background -->
-    <div class="popcorn-bg" id="popcornBg"></div>
-
-    <!-- Hero Section -->
+    <!-- ===========================
+         HERO SECTION CONTENT
+         =========================== -->
     <section class="hero" id="hero">
-        <div class="hero-kernels">
-            <div class="kernel"></div>
-            <div class="kernel"></div>
-            <div class="kernel"></div>
-            <div class="kernel"></div>
-        </div>
         <div class="hero-content">
-            <h1>🍿 Simply Kettle 🍿</h1>
-            <p>Freshly popped kettle corn that'll make your taste buds dance!</p>
-            <a href="#contact" class="cta-button">Get Your Pop On!</a>
+            <h1>🍿 Pop Paradise 🍿</h1> <!-- 🔠 Change hero title text -->
+            <p>Freshly popped kettle corn that'll make your taste buds dance!</p> <!-- ✏️ Change subtitle -->
+            <a href="#contact" class="cta-button">Get Your Pop On!</a> <!-- ✏️ CTA text -->
         </div>
     </section>
 
-    <!-- Offerings Section -->
+    <!-- ===========================
+         OFFERINGS SECTION CONTENT
+         =========================== -->
     <section class="offerings" id="offerings">
-        <h2>Our Poppin' Flavors</h2>
+        <h2>Our Poppin' Flavors</h2> <!-- ✏️ Section heading -->
         <div class="offerings-grid">
-            <div class="offering-card">
-                <div class="offering-icon">🌽</div>
-                <h3>Classic Kettle Corn</h3>
-                <p>The perfect balance of sweet and salty that started it all. Made with premium kernels and our secret seasoning blend.</p>
-                <div class="price">$8.99/bag</div>
-            </div>
             
+            <!-- 🃏 CARD 1 -->
+            <div class="offering-card">
+                <div class="offering-icon">🌽</div> <!-- 🎨 Replace icon -->
+                <h3>Classic Kettle Corn</h3> <!-- ✏️ Card title -->
+                <p>The perfect balance of sweet and salty...</p> <!-- ✏️ Card description -->
+                <div class="price">$8.99/bag</div> <!-- ✏️ Price -->
+            </div>
+
+            <!-- 🃏 CARD 2 -->
             <div class="offering-card">
                 <div class="offering-icon">🧀</div>
                 <h3>Cheesy Cheddar Pop</h3>
-                <p>Rich, creamy cheddar cheese coating every kernel. It's like a party in your mouth with every crunch!</p>
+                <p>Rich, creamy cheddar cheese coating every kernel...</p>
                 <div class="price">$9.99/bag</div>
             </div>
-            
-            <div class="offering-card">
-                <div class="offering-icon">🌶️</div>
-                <h3>Spicy Jalapeño Kick</h3>
-                <p>For the brave souls who like their snacks with a kick! Perfectly spiced without overwhelming the flavor.</p>
-                <div class="price">$10.99/bag</div>
-            </div>
-            
-            <div class="offering-card">
-                <div class="offering-icon">🍫</div>
-                <h3>Chocolate Drizzle Dream</h3>
-                <p>Sweet kettle corn drizzled with premium dark chocolate. It's dessert and snack rolled into one!</p>
-                <div class="price">$11.99/bag</div>
-            </div>
-            
-            <div class="offering-card">
-                <div class="offering-icon">🎪</div>
-                <h3>Carnival Mix Combo</h3>
-                <p>Can't decide? Get a mix of all our flavors! Perfect for parties, events, or when you're feeling adventurous.</p>
-                <div class="price">$15.99/bag</div>
-            </div>
-            
-            <div class="offering-card">
-                <div class="offering-icon">🎁</div>
-                <h3>Custom Party Packs</h3>
-                <p>Planning an event? We'll create custom flavors and packaging for your special occasion. Let's make it memorable!</p>
-                <div class="price">Contact Us</div>
-            </div>
+
+            <!-- 🃏 Add/Edit more cards the same way -->
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- ===========================
+         CONTACT SECTION CONTENT
+         =========================== -->
     <section class="contact" id="contact">
-        <div class="contact-kernels">
-            <div class="contact-kernel"></div>
-            <div class="contact-kernel"></div>
-            <div class="contact-kernel"></div>
-            <div class="contact-kernel"></div>
-        </div>
-        
-        <h2>Let's Get Poppin'!</h2>
+        <h2>Let's Get Poppin'!</h2> <!-- ✏️ Contact heading -->
         <div class="contact-container">
             <form id="contactForm">
+                <!-- ✏️ Customize input fields as needed -->
                 <div class="form-group">
                     <label for="name">Your Name</label>
                     <input type="text" id="name" name="name" required>
@@ -454,77 +156,17 @@
                 
                 <div class="form-group">
                     <label for="event-type">Event Type</label>
-                    <input type="text" id="event-type" name="event-type" placeholder="Birthday, Wedding, Corporate Event, etc.">
+                    <input type="text" id="event-type" name="event-type">
                 </div>
                 
                 <div class="form-group">
                     <label for="message">Tell Us About Your Poppin' Needs!</label>
-                    <textarea id="message" name="message" rows="5" placeholder="How many people? Any special flavor requests? When's your event? We're all ears!"></textarea>
+                    <textarea id="message" name="message" rows="5"></textarea>
                 </div>
                 
-                <button type="submit" class="submit-btn">🍿 Get Poppin'! 🍿</button>
+                <button type="submit" class="submit-btn">🍿 Get Poppin'! 🍿</button> <!-- ✏️ Button text -->
             </form>
         </div>
     </section>
-
-    <script>
-        // Create floating background kernels
-        function createFloatingKernels() {
-            const bg = document.getElementById('popcornBg');
-            
-            for (let i = 0; i < 15; i++) {
-                const kernel = document.createElement('div');
-                kernel.className = 'floating-kernel';
-                kernel.style.left = Math.random() * 100 + '%';
-                kernel.style.animationDelay = Math.random() * 8 + 's';
-                kernel.style.animationDuration = (8 + Math.random() * 4) + 's';
-                bg.appendChild(kernel);
-            }
-        }
-
-        // Form submission with animation
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const submitBtn = document.querySelector('.submit-btn');
-            const originalText = submitBtn.textContent;
-            
-            submitBtn.textContent = '🎉 Popping Your Message! 🎉';
-            submitBtn.style.background = 'linear-gradient(45deg, #48dbfb, #0abde3)';
-            
-            setTimeout(() => {
-                submitBtn.textContent = '✨ Message Popped! ✨';
-                submitBtn.style.background = 'linear-gradient(45deg, #26de81, #20bf6b)';
-                
-                setTimeout(() => {
-                    submitBtn.textContent = originalText;
-                    submitBtn.style.background = 'linear-gradient(45deg, #ff6b6b, #feca57)';
-                    this.reset();
-                }, 2000);
-            }, 1500);
-        });
-
-        // Smooth scrolling for CTA button
-        document.querySelector('.cta-button').addEventListener('click', function(e) {
-            e.preventDefault();
-            document.getElementById('contact').scrollIntoView({
-                behavior: 'smooth'
-            });
-        });
-
-        // Initialize floating kernels
-        createFloatingKernels();
-
-        // Add some sparkle effects on hover for offering cards
-        document.querySelectorAll('.offering-card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-10px) scale(1.05) rotate(1deg)';
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0) scale(1) rotate(0deg)';
-            });
-        });
-    </script>
 </body>
 </html>
